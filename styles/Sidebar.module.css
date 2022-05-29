@@ -1,0 +1,34 @@
+.container{
+    background-color: #C4C4C4;
+    width: 15%;
+    height: 83vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 5vh;
+}
+
+.link{
+    color: white;
+    font-weight: 700;
+    text-decoration: none;
+    margin-top: 10px;
+    text-decoration: none;
+}
+
+.link:hover{
+    color: green;
+    background-color: #B9CC7E;
+}
+
+.container ul{
+    list-style-type: none;
+}
+
+.navbar{
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+  

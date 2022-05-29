@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    background-color: #6FCF97;
+    padding:20px 50px;
+}
+
+.title{
+    display: flex;
+    flex-direction: column;
+    padding: 10px 30px;
+    width: 40%;
+    padding: 0;
+    padding-left: 30px;
+}
+
+.title p {
+    margin: 0;
+    padding: 0;
+}
+
+.text{
+    color: white;
+    font-weight: 700;
+    font-size: xx-large;
+}
+
+.text1{
+    color: yellow;
+    font-weight: 500;
+    font-size: larger;
+}
