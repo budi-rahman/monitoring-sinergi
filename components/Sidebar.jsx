@@ -46,7 +46,7 @@ const Sidebar = () => {
                 <li className="nav-item">
                     <a className={styles.link}>Upload Berita</a>
                 </li>
-                <li class="nav-item">
+                <li className="nav-item">
                     <a className={styles.link} onClick={handleLogout}>Logout</a>
                 </li>
             </ul>

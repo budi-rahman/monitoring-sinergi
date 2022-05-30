@@ -56,39 +56,39 @@ const AddUser = () => {
             <div className={styles.formContainer}>
                 <form>
             
-                    <div class="mb-1">
-                        <label for="exampleInputEmail1" className="form-label">Nama Lengkap</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setName(e.target.value)}/>
+                    <div className="mb-1">
+                        <label className="form-label">Nama Lengkap</label>
+                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setName(e.target.value)}/>
                     </div>
-                    <div class="mb-1">
-                        <label for="exampleInputPassword1" className="form-label">Username</label>
-                        <input type="text" class="form-control" id="exampleInputPassword1" onChange={(e) => setUserName(e.target.value)}/>
+                    <div className="mb-1">
+                        <label className="form-label">Username</label>
+                        <input type="text" className="form-control" id="exampleInputPassword1" onChange={(e) => setUserName(e.target.value)}/>
                     </div>
-                    <div class="mb-1">
-                        <label for="exampleInputPassword1" className="form-label">Email</label>
-                        <input type="email" class="form-control" id="exampleInputPassword1" onChange={(e) => setEmail(e.target.value)}/>
+                    <div className="mb-1">
+                        <label className="form-label">Email</label>
+                        <input type="email" className="form-control" id="exampleInputPassword1" onChange={(e) => setEmail(e.target.value)}/>
                     </div>
-                    <div class="mb-1">
-                        <label for="exampleInputPassword1" className="form-label">NIK</label>
-                        <input type="telp" class="form-control" id="exampleInputPassword1" onChange={(e) => setNik(e.target.value)}/>
+                    <div className="mb-1">
+                        <label className="form-label">NIK</label>
+                        <input type="telp" className="form-control" id="exampleInputPassword1" onChange={(e) => setNik(e.target.value)}/>
                     </div>
-                    <div class="mb-1">
-                        <label for="exampleInputPassword1" className="form-label">No Handphone</label>
-                        <input type="telp" class="form-control" id="exampleInputPassword1" onChange={(e) => setNoHP(e.target.value)}/>
+                    <div className="mb-1">
+                        <label className="form-label">No Handphone</label>
+                        <input type="telp" className="form-control" id="exampleInputPassword1" onChange={(e) => setNoHP(e.target.value)}/>
                     </div>
-                    <div class="mb-1">
-                        <label for="exampleInputPassword1" className="form-label">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)}/>
+                    <div className="mb-1">
+                        <label className="form-label">Password</label>
+                        <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)}/>
                     </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" className="form-label">Role</label>
+                    <div className="mb-3">
+                        <label className="form-label">Role</label>
                         <select className="form-select" aria-label="Default select example" onChange={(e) => setRole(e.target.value)}>
                             <option value={role} selected>User</option>
                             <option value={3}> Staff</option>
                             <option value={1}>Admin</option>
                         </select>
                     </div>
-                    <div class="btn btn-primary" onClick={() => handleAddUser()}>Submit</div>
+                    <div className="btn btn-primary" onClick={() => handleAddUser()}>Submit</div>
                 </form>
             </div>
         </div>

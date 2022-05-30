@@ -68,23 +68,23 @@ const CreatePenyuluhan = () => {
                     </div>
                     <div className={styles.formContainer}>
                         <form>
-                            <div class="mb-1">
-                                <label for="exampleInputPassword1" className="form-label">Materi Penyuluhan</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" onChange={(e) => setMateri(e.target.value)} />
+                            <div className="mb-1">
+                                <label className="form-label">Materi Penyuluhan</label>
+                                <input type="text" className="form-control" id="exampleInputPassword1" onChange={(e) => setMateri(e.target.value)} />
                             </div>
-                            <div class="mb-1">
-                                <label for="exampleInputPassword1" className="form-label">Lokasi Penyuluhan</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" onChange={(e) => setAlamat(e.target.value)} />
+                            <div className="mb-1">
+                                <label className="form-label">Lokasi Penyuluhan</label>
+                                <input type="email" className="form-control" id="exampleInputPassword1" onChange={(e) => setAlamat(e.target.value)} />
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">Pemateri</label>
+                            <div className="mb-3">
+                                <label className="form-label">Pemateri</label>
                                 <select className="form-select" aria-label="Default select example" onChange={(e) => setRolePick(e.target.value)}>
                                     {daftarPIC.map((value, index) => (
                                         <option key={index} value={value.id}>{value.name}</option>
                                     ))}
                                 </select>
                             </div>
-                            <div class="btn btn-primary" onClick={() => handlePostMateri()}>Submit</div>
+                            <div className="btn btn-primary" onClick={() => handlePostMateri()}>Submit</div>
                         </form>
                     </div>
                 </div>

@@ -30,7 +30,7 @@ const ListUser = () => {
             <div className={styles.table}>
             <div className={styles.wrapper}>
                 <Link href='/penyuluhan/create'>
-                    <button type="button" class="btn btn-primary">Buat Penyuluhan</button>
+                    <button type="button" className="btn btn-primary">Buat Penyuluhan</button>
                 </Link>
             </div>
                 <table className="table">
@@ -46,7 +46,7 @@ const ListUser = () => {
                         </thead>
                         <tbody>
                             {dataPenyuluhan.map((value, index) => (
-                                <tr>
+                                <tr key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{value.materi}</td>
                                     <td>{value.pic}</td>

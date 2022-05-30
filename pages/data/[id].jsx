@@ -64,28 +64,28 @@ const EditUser = ({ id }) => {
                         </div>
                         <div className={styles.formContainer}>
                             <form>
-                                <div class="mb-1">
-                                    <label for="exampleInputEmail1" class="form-label">Nama Lengkap</label>
-                                    <input value={userData.nama} type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled />
+                                <div className="mb-1">
+                                    <label  className="form-label">Nama Lengkap</label>
+                                    <input value={userData.nama} type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" disabled />
                                 </div>
-                                <div class="mb-1">
-                                    <label for="exampleInputPassword1" class="form-label">Email</label>
-                                    <input value={userData.email} type="text" class="form-control" id="exampleInputPassword1" disabled />
+                                <div className="mb-1">
+                                    <label className="form-label">Email</label>
+                                    <input value={userData.email} type="text" className="form-control" id="exampleInputPassword1" disabled />
                                 </div>
-                                <div class="mb-1">
-                                    <label for="exampleInputPassword1" class="form-label">NIK</label>
-                                    <input value={userData.ktp} type="number" class="form-control" id="exampleInputPassword1" disabled />
+                                <div className="mb-1">
+                                    <label className="form-label">NIK</label>
+                                    <input value={userData.ktp} type="number" className="form-control" id="exampleInputPassword1" disabled />
                                 </div>
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" class="form-label">Role</label>
-                                    <select class="form-select" aria-label="Default select example" onChange={(e) => setRole(e.target.value)}>
+                                <div className="mb-3">
+                                    <label className="form-label">Role</label>
+                                    <select className="form-select" aria-label="Default select example" onChange={(e) => setRole(e.target.value)}>
                                         <option value={role} selected>{userData.role}</option>
                                         {availableRole.map((value, index) => (
-                                            <option value={value.id}>{value.role}</option>
+                                            <option value={value.id} key={index}>{value.role}</option>
                                         ))}
                                     </select>
                                 </div>
-                                <div class="btn btn-primary" onClick={() => handleChangeRole()}>Submit</div>
+                                <div className="btn btn-primary" onClick={() => handleChangeRole()}>Submit</div>
                             </form>
                         </div>
                     </div>

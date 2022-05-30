@@ -26,8 +26,8 @@ const ListUser = () => {
         <div className={styles.container}>
             <Sidebar/>
             <div className={styles.table}> 
-                <table class="table">
-                <table class="table caption-top">
+                <table className="table">
+                <table className="table caption-top">
                 <caption>Daftar User</caption>
                 <thead>
                     <tr>
@@ -41,15 +41,15 @@ const ListUser = () => {
                 </thead>
                 <tbody>
                     {userData.map((value, index) => (
-                    <tr>
+                    <tr key={index}>
                         <th scope="row">{index + 1}</th>
                         <td>{value.nama}</td>
                         <td>{value.ktp}</td>
                         <td>{value.email}</td>
                         <td>{value.role}</td>
                         <td>
-                            <i class="bi bi-pencil-square mr-5" onClick={() => router.push(`/data/${value.id}`)}></i>
-                            <i class="bi bi-trash3"></i>
+                            <i className="bi bi-pencil-square mr-5" onClick={() => router.push(`/data/${value.id}`)}></i>
+                            <i className="bi bi-trash3"></i>
                         </td>
                     </tr>
                     ))}

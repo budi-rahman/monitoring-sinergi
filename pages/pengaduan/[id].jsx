@@ -68,34 +68,34 @@ const Penyuluhan = ({ id }) => {
                     </div>
                     <div className={styles.formContainer}>
                         <form>
-                            <div class="mb-1">
-                                <label for="exampleInputPassword1" className="form-label">Nama Pelapor</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" value={dataPengaduan.name} readOnly />
+                            <div className="mb-1">
+                                <label className="form-label">Nama Pelapor</label>
+                                <input type="text" className="form-control" id="exampleInputPassword1" value={dataPengaduan.name} readOnly />
                             </div>
-                            <div class="mb-1">
-                                <label for="exampleInputPassword1" className="form-label">Nomor Pengaduan</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" value={dataPengaduan.no_pengaduan} readOnly />
+                            <div className="mb-1">
+                                <label className="form-label">Nomor Pengaduan</label>
+                                <input type="email" className="form-control" id="exampleInputPassword1" value={dataPengaduan.no_pengaduan} readOnly />
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">No Identitas</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" value={dataPengaduan.nik} readOnly />
+                            <div className="mb-3">
+                                <label className="form-label">No Identitas</label>
+                                <input type="email" className="form-control" id="exampleInputPassword1" value={dataPengaduan.nik} readOnly />
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">Isi Pengaduan</label>
-                                <textarea type="email" class="form-control" id="exampleInputPassword1" value={dataPengaduan.report} readOnly />
+                            <div className="mb-3">
+                                <label className="form-label">Isi Pengaduan</label>
+                                <textarea type="email" className="form-control" id="exampleInputPassword1" value={dataPengaduan.report} readOnly />
                             </div>
                             {isRespone ?
-                                <div class="mb-3">
-                                    <label for="exampleInputPassword1" className="form-label">Hasil Laporan</label>
-                                    <textarea type="email" class="form-control" id="exampleInputPassword1" value={dataPengaduan.respone} readOnly/>
+                                <div className="mb-3">
+                                    <label className="form-label">Hasil Laporan</label>
+                                    <textarea type="email" className="form-control" id="exampleInputPassword1" value={dataPengaduan.respone} readOnly/>
                                 </div>
                                 :
                                 <>
-                                    <div class="mb-3">
-                                        <label for="exampleInputPassword1" className="form-label">Hasil Laporan</label>
-                                        <textarea type="email" class="form-control" id="exampleInputPassword1" onChange={(e) => setRespone(e.target.value)} />
+                                    <div className="mb-3">
+                                        <label className="form-label">Hasil Laporan</label>
+                                        <textarea type="email" className="form-control" id="exampleInputPassword1" onChange={(e) => setRespone(e.target.value)} />
                                     </div>
-                                    <div class="btn btn-primary" onClick={() => handleSubmit()}>Submit</div>
+                                    <div className="btn btn-primary" onClick={() => handleSubmit()}>Submit</div>
                                 </>
                             }
                         </form>

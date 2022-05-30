@@ -26,6 +26,7 @@ const ListUser = () => {
             let res = await fetch.json()
             setDataPengaduan(res.data)
         }
+        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -33,8 +34,8 @@ const ListUser = () => {
         <div className={styles.container}>
             <Sidebar />
             <div className={styles.table}>
-                <table class="table">
-                    <table class="table caption-top">
+                <table className="table">
+                    <table className="table caption-top">
                         <caption>Daftar Pengaduan</caption>
                         <thead>
                             <tr>
@@ -47,14 +48,14 @@ const ListUser = () => {
                         </thead>
                         <tbody>
                             {dataPengaduan.map((value, index) => (
-                                <tr>
+                                <tr key={index}>
                                     <th scope="row">{index + 1}</th>
                                     <td>{value.no_pengaduan}</td>
                                     <td>{value.nama}</td>
                                     <td>{value.nik}</td>
                                     <td>
-                                        <i class="bi bi-pencil-square mr-5" onClick={() => router.push(`/pengaduan/${changeURL(value.no_pengaduan)}`)}></i>
-                                        <i class="bi bi-trash3"></i>
+                                        <i className="bi bi-pencil-square mr-5" onClick={() => router.push(`/pengaduan/${changeURL(value.no_pengaduan)}`)}></i>
+                                        <i className="bi bi-trash3"></i>
                                     </td>
                                 </tr>
                             ))}

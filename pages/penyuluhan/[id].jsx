@@ -63,23 +63,23 @@ const Penyuluhan = ({ id }) => {
                     </div>
                     <div className={styles.formContainer}>
                         <form>
-                            <div class="mb-1">
-                                <label for="exampleInputPassword1" className="form-label">Materi Penyuluhan</label>
-                                <input type="text" class="form-control" id="exampleInputPassword1" value={dataPenyuluhan.materi} readOnly />
+                            <div className="mb-1">
+                                <label className="form-label">Materi Penyuluhan</label>
+                                <input type="text" className="form-control" id="exampleInputPassword1" value={dataPenyuluhan.materi} readOnly />
                             </div>
-                            <div class="mb-1">
-                                <label for="exampleInputPassword1" className="form-label">Lokasi Penyuluhan</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" value={dataPenyuluhan.alamat} readOnly />
+                            <div className="mb-1">
+                                <label className="form-label">Lokasi Penyuluhan</label>
+                                <input type="email" className="form-control" id="exampleInputPassword1" value={dataPenyuluhan.alamat} readOnly />
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">Pemateri</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" value={dataPenyuluhan.pic} readOnly />
+                            <div className="mb-3">
+                                <label className="form-label">Pemateri</label>
+                                <input type="email" className="form-control" id="exampleInputPassword1" value={dataPenyuluhan.pic} readOnly />
                             </div>
-                            <div class="mb-3">
-                                <label for="exampleInputPassword1" className="form-label">Input Absensi</label>
-                                <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Nama Peserta" onChange={(e) => setAddPeserta(e.target.value)} />
+                            <div className="mb-3">
+                                <label className="form-label">Input Absensi</label>
+                                <input type="email" className="form-control" id="exampleInputPassword1" placeholder="Nama Peserta" onChange={(e) => setAddPeserta(e.target.value)} />
                             </div>
-                            <div class="btn btn-primary" onClick={() => handleAddPeserta()}>Submit</div>
+                            <div className="btn btn-primary" onClick={() => handleAddPeserta()}>Submit</div>
                         </form>
                     </div>
                 </div>
