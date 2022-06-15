@@ -7,13 +7,15 @@ import { useState, useEffect } from 'react';
 
 
 const Penyuluhan = ({ id }) => {
-
-
     const [dataPengaduan, setDataPengaduan] = useState([])
     const [respone, setRespone] = useState()
     const [token, setToken] = useState()
     const [isLoading, setLoading] = useState(true)
     const [isRespone, setIsRespone] = useState(false)
+    const [rolePick, setRolePick] = useState()
+    const [daftarPIC, setDaftarPIC] = useState([])
+
+    const router = useRouter()
 
     const changeURL = (id) => {
         return id.replaceAll("-", "/")
@@ -22,6 +24,7 @@ const Penyuluhan = ({ id }) => {
     const handleSubmit = async() => {
         let data = {
             "no_pengaduan": dataPengaduan.no_pengaduan,
+            "pic": rolePick,
             "respone": respone
         }
 
@@ -29,6 +32,7 @@ const Penyuluhan = ({ id }) => {
         let res = await post.json()
         if (res.status == 200) {
             // kalau sukses tampilannya gimana
+            router.push('/pengaduan')
             console.log(res)
         } else {
             // kalau gagal gimana
@@ -47,13 +51,34 @@ const Penyuluhan = ({ id }) => {
             let res = await fetch.json()
 
             if (fetch.status == 200) {
-                if (res.data.status == "True") {
+                if (res.data.status == true) {
                     setIsRespone(true)
                 }
                 setDataPengaduan(res.data)
                 setLoading(false)
             } else {
                 // lw buat kalau gagal fetch gimana, pop up atau gimana
+            }
+        }
+    }, [])
+
+    useEffect(async () => {
+        let token = cookies.get("token")
+        if (token == undefined) {
+            router.push("/")
+        } else {
+
+            setToken(token)
+            let fetch = await SinergiAPi.Pengaduan.PengaduanPIC({ token: token })
+            let res = await fetch.json()
+            if (fetch.status == 200) {
+                console.log(res.data)
+                // kalau sukses tampilannya gimana
+                setDaftarPIC(res.data)
+                setRolePick(res.data[0].id)
+            } else {
+                // kalau gagal gimana
+                console.log("gagal masuk sini")
             }
         }
     }, [])
@@ -84,6 +109,14 @@ const Penyuluhan = ({ id }) => {
                                 <label className="form-label">Isi Pengaduan</label>
                                 <textarea type="email" className="form-control" id="exampleInputPassword1" value={dataPengaduan.report} readOnly />
                             </div>
+                            <div className="mb-3">
+                                <label className="form-label">PIC</label>
+                                <select className="form-select" aria-label="Default select example" onChange={(e) => setRolePick(e.target.value)}>
+                                    {daftarPIC.map((value, index) => (
+                                        <option key={index} value={value.id}>{value.name}</option>
+                                    ))}
+                                </select>
+                            </div>
                             {isRespone ?
                                 <div className="mb-3">
                                     <label className="form-label">Hasil Laporan</label>
@@ -101,10 +134,6 @@ const Penyuluhan = ({ id }) => {
                         </form>
                     </div>
                 </div>
-
-
-
-
             }
         </>
     )

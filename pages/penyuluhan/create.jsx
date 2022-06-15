@@ -3,6 +3,7 @@ import Sidebar from '../../components/Sidebar'
 import { useState, useEffect } from 'react'
 import SinergiAPi from '../../lib/api'
 import cookies from '../../lib/cookies'
+import { useRouter } from 'next/router'
 
 const CreatePenyuluhan = () => {
 
@@ -14,6 +15,8 @@ const CreatePenyuluhan = () => {
 
     const [daftarPIC, setDaftarPIC] = useState([])
 
+    const router = useRouter()
+
     const handlePostMateri = async () => {
 
         let data = {
@@ -24,9 +27,11 @@ const CreatePenyuluhan = () => {
 
         let post = await SinergiAPi.Penyuluhan.PostMateri({ token: token, data: data })
         let res = await post.json()
-        if (res.status == 201) {
+        console.log(post.status)
+        if (post.status == 201) {
             // kalau sukses tampilannya gimana
             console.log(res)
+            router.push('/penyuluhan')
         } else {
             // kalau gagal gimana
             console.log(res)
@@ -44,7 +49,7 @@ const CreatePenyuluhan = () => {
             let fetch = await SinergiAPi.Penyuluhan.GetPIC({ token: token })
             let res = await fetch.json()
             if (fetch.status == 200) {
-
+                console.log(res.data)
                 // kalau sukses tampilannya gimana
                 setDaftarPIC(res.data)
                 setRolePick(res.data[0].id)

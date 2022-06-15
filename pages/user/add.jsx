@@ -42,7 +42,7 @@ const AddUser = () => {
     useEffect(async () => {
         let token = cookies.get("token")
         if (token == undefined) {
-            router.push("/")
+            router.push("/data")
         }
     }, [])
 

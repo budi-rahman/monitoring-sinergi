@@ -25,7 +25,7 @@ const EditUser = ({ id }) => {
         let res = await post.json()
         if (post.status == 200) {
             // berhasil
-            console.log(res)
+            router.push('/data')
         } else {
             // gagal
             console.log(res)

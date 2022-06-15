@@ -68,7 +68,6 @@ export default function Home() {
       </div>
       <div className={styles.buttonContainer}>
         <button type="button" className="btn btn-success" onClick={() => handleLogin()}>Masuk</button>
-        <button type="button" className="btn btn-link">Lupa Password?</button>
       </div>
     </div>
   )

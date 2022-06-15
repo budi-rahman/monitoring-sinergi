@@ -18,6 +18,7 @@ const ListUser = () => {
             router.push("/")
         } else {
             let fetch = await SinergiAPi.Penyuluhan.GetAllMateri({ token: token })
+            console.log(fetch)
             let res = await fetch.json()
             setDataPenyuluhan(res.data)
         }
@@ -51,8 +52,7 @@ const ListUser = () => {
                                     <td>{value.materi}</td>
                                     <td>{value.pic}</td>
                                     <td>
-                                        <i className="bi bi-pencil-square mr-5" onClick={() => router.push(`/penyuluhan/${value.id}`)}></i>
-                                        <i className="bi bi-trash3"></i>
+                                        <button type="button" className="btn btn-primary" onClick={() => router.push(`/penyuluhan/${value.id}`)}>Edit</button>
                                     </td>
                                 </tr>
                             ))}

@@ -22,6 +22,7 @@ const Penyuluhan = ({ id }) => {
         let res = await post.json()
         if (res.status == 201) {
             // kalau sukses tampilannya gimana
+            router.push('/penyuluhan')
             console.log(res)
         } else {
             // kalau gagal gimana
@@ -40,7 +41,7 @@ const Penyuluhan = ({ id }) => {
             let fetch = await SinergiAPi.Penyuluhan.GetMateri({ token: token, id: id })
             let res = await fetch.json()
             if (fetch.status == 200) {
-                if (res.data.status == "True") {
+                if (res.data.status == true) {
                     setIsRespone(true)
                 }
                 setDataPenyuluhan(res.data)

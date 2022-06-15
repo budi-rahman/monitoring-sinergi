@@ -48,8 +48,7 @@ const ListUser = () => {
                         <td>{value.email}</td>
                         <td>{value.role}</td>
                         <td>
-                            <i className="bi bi-pencil-square mr-5" onClick={() => router.push(`/data/${value.id}`)}></i>
-                            <i className="bi bi-trash3"></i>
+                            <button type="button" className="btn btn-primary" onClick={() => router.push(`/data/${value.id}`)}>Edit</button>
                         </td>
                     </tr>
                     ))}

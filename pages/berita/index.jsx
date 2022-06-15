@@ -1,4 +1,4 @@
-import styles from '../../styles/Userlist.module.css';
+import styles from '../../styles/Berita.module.css';
 import Sidebar from '../../components/Sidebar';
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
@@ -8,7 +8,7 @@ import { useRouter } from 'next/router';
 
 
 
-const ListUser = () => {
+const ListBerita = () => {
 
     let router = useRouter()
     const [dataPengaduan, setDataPengaduan] = useState([])
@@ -36,14 +36,12 @@ const ListUser = () => {
             <div className={styles.table}>
                 <table className="table">
                     <table className="table caption-top">
-                        <caption>Daftar Pengaduan</caption>
+                        <caption>Daftar Berita</caption>
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nomor Pengaduan</th>
-                                <th scope="col">Nama Pengadu</th>
-                                <th scope="col">No Identitas</th>
-                                <th scope="col">Action</th>
+                                <th scope="col">Judul</th>
+                                <th scope="col">Waktu</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -66,4 +64,4 @@ const ListUser = () => {
     )
 }
 
-export default ListUser
+export default ListBerita
