@@ -5,13 +5,23 @@ import { useEffect, useState } from 'react'
 import cookies from '../../lib/cookies';
 import SinergiAPi from '../../lib/api';
 import { useRouter } from 'next/router';
+import { DataTable } from 'primereact/datatable';
+import { Column } from 'primereact/column';
+import { Button } from 'primereact/button';
 
-
-
-const ListUser = () => {
+const ListPengaduan = () => {
 
     let router = useRouter()
     const [dataPengaduan, setDataPengaduan] = useState([])
+    const [loading1, setLoading1] = useState(false);
+
+    const onLoadingClick1 = () => {
+      setLoading1(true);
+  
+      setTimeout(() => {
+          setLoading1(false);
+      }, 2000);
+  }
 
     const changeURL = (url) => {
         return url.replaceAll("/", "-")
@@ -26,44 +36,36 @@ const ListUser = () => {
             let res = await fetch.json()
             setDataPengaduan(res.data)
         }
-        //eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
+
+    const actionBodyTemplate = (value) => {
+        return (
+                <Button icon="pi pi-pencil" loading={loading1} className="p-button-rounded p-button-success mr-2" onClick={() => {router.push(`/pengaduan/${changeURL(value.no_pengaduan)}`); onLoadingClick1();}}/>
+        );
+    }
 
 
     return (
         <div className={styles.container}>
             <Sidebar />
             <div className={styles.table}>
-                <table className="table">
-                    <table className="table caption-top">
-                        <caption>Daftar Pengaduan</caption>
-                        <thead>
-                            <tr>
-                                <th scope="col">No</th>
-                                <th scope="col">Nomor Pengaduan</th>
-                                <th scope="col">Nama Pengadu</th>
-                                <th scope="col">No Identitas</th>
-                                <th scope="col">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {dataPengaduan.map((value, index) => (
-                                <tr key={index}>
-                                    <th scope="row">{index + 1}</th>
-                                    <td>{value.no_pengaduan}</td>
-                                    <td>{value.nama}</td>
-                                    <td>{value.nik}</td>
-                                    <td>
-                                        <button type="button" className="btn btn-primary" onClick={() => router.push(`/pengaduan/${changeURL(value.no_pengaduan)}`)}>Edit</button>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
-                </table>
+            <h3>Daftar Pengaduan</h3>
+                <div className={styles.table}>
+                    <div className="card">
+                        <DataTable value={dataPengaduan} responsiveLayout="scroll">
+                            <Column field="no_pengaduan" header="Nomor Pengaduan"></Column>
+                            <Column field="nama" header="Nama"></Column>
+                            <Column field="nik" header="KTP"></Column>
+                            <Column field="report" header="Laporan"></Column>
+                            <Column field="response" header="Respon"></Column>
+                            <Column field="pic" header="PIC"></Column>
+                            <Column body={actionBodyTemplate} exportable={false} style={{ minWidth: '8rem' }}  header="Action"></Column>
+                        </DataTable>
+                    </div>
+                </div>
             </div>
         </div>
     )
 }
 
-export default ListUser
+export default ListPengaduan

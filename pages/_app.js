@@ -1,8 +1,9 @@
 import React from 'react';
 import '../styles/globals.css'
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 import Layout from '../components/Layout'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-icons/font/bootstrap-icons.css'
 import {useRouter} from 'next/router';
 import { useState, useEffect } from 'react';
 

@@ -5,12 +5,25 @@ import { useEffect, useState } from 'react'
 import cookies from '../lib/cookies'
 import SinergiAPi from '../lib/api'
 import { useRouter } from 'next/router'
+import { InputText } from 'primereact/inputtext';
+import { Password } from 'primereact/password';
+import { Button } from 'primereact/button';
 
 export default function Home() {
 
   let router = useRouter()
   const [username, setUsername] = useState()
   const [password, setPassword] = useState()
+  const [loading1, setLoading1] = useState(false);
+
+  const onLoadingClick1 = () => {
+    setLoading1(true);
+
+    setTimeout(() => {
+        setLoading1(false);
+    }, 2000);
+}
+
   const handleLogin = async () => {
 
     let userData = {
@@ -57,17 +70,25 @@ export default function Home() {
         <div className={styles.greeting}>
           <h3>Selamat Datang di Monitoring Sinergi!</h3>
         </div>
-        <div className="mb-3">
-          <label htmlFor="exampleFormControlInput1" className="form-label">Username</label>
-          <input type="text" className="form-control" id="exampleFormControlInput1" placeholder="username" onChange={(e) => setUsername(e.target.value)} />
+        <div className="col-12 md:col-4">
+          <div className="p-inputgroup">
+              <span className="p-inputgroup-addon">
+                    <i className="pi pi-user"></i>
+              </span>
+              <InputText placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
+          </div>
         </div>
-        <div className="form-group">
-          <label htmlFor="exampleInputPassword1">Password</label>
-          <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
+        <div className="col-12 md:col-4 mt-5">
+          <div className="p-inputgroup">
+              <span className="p-inputgroup-addon">
+                    <i className="pi pi-lock-open"></i>
+              </span>
+              <Password  placeholder="Password" feedback={false} onChange={(e) => setPassword(e.target.value)}/>
+          </div>
         </div>
       </div>
       <div className={styles.buttonContainer}>
-        <button type="button" className="btn btn-success" onClick={() => handleLogin()}>Masuk</button>
+      <Button label="Masuk" icon="pi pi-check" loading={loading1} iconPos="right" className="p-button-raised p-button-success mt-5" onClick={() => {onLoadingClick1(); handleLogin();}}/>
       </div>
     </div>
   )

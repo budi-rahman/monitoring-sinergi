@@ -1,6 +1,7 @@
 .container{
     display: flex;
-    width: 100%
+    width: 100%;
+    flex-direction: column;
 }
 
 .formContainer{
@@ -13,4 +14,14 @@
 .title{
     width: 15%;
     padding: 20px
+}
+
+.option{
+    width: 250px;
+    height: 40px;
+    margin: 5px 0px;
+    border: 0;
+    background-color:#cbe9d79c;
+    border-radius: 5px;
+    padding: 10px;
 }

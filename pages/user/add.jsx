@@ -4,7 +4,10 @@ import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import cookies from '../../lib/cookies';
 import SinergiAPi from '../../lib/api';
-
+import { useRouter } from 'next/router'
+import { InputText } from 'primereact/inputtext';
+import { Password } from 'primereact/password';
+import { Button } from 'primereact/button';
 
 const AddUser = () => {
 
@@ -15,6 +18,15 @@ const AddUser = () => {
     const [password, setPassword] = useState()
     const [role, setRole] = useState(2)
     const [noHP, setNoHP] = useState()
+    const [loading1, setLoading1] = useState(false);
+
+    const onLoadingClick1 = () => {
+      setLoading1(true);
+  
+      setTimeout(() => {
+          setLoading1(false);
+      }, 2000);
+  }
 
     const handleAddUser = async() => {
 
@@ -51,44 +63,93 @@ const AddUser = () => {
         <div className={styles.container}>
             <Sidebar />
             <div className={styles.title}>
-                <h5>Form Tambah User</h5>
+                <h3>Tambah User</h3>
             </div>
             <div className={styles.formContainer}>
                 <form>
             
-                    <div className="mb-1">
+                    {/* <div className="mb-1">
                         <label className="form-label">Nama Lengkap</label>
                         <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setName(e.target.value)}/>
+                    </div> */}
+                    <div className="col-12 md:col-4">
+                        <div className="p-inputgroup">
+                            <span className="p-inputgroup-addon">
+                                <i className="pi pi-user-edit"></i>
+                            </span>
+                        <InputText placeholder="Nama Lengkap" onChange={(e) => setName(e.target.value)} />
+                        </div>
                     </div>
-                    <div className="mb-1">
+                    {/* <div className="mb-1">
                         <label className="form-label">Username</label>
                         <input type="text" className="form-control" id="exampleInputPassword1" onChange={(e) => setUserName(e.target.value)}/>
-                    </div>
-                    <div className="mb-1">
+                    </div> */}
+                    <div className="col-12 md:col-4">
+                        <div className="p-inputgroup">
+                            <span className="p-inputgroup-addon">
+                                <i className="pi pi-user"></i>
+                            </span>
+                            <InputText placeholder="Username" onChange={(e) => setUserName(e.target.value)} />
+                        </div>
+                     </div>
+                    {/* <div className="mb-1">
                         <label className="form-label">Email</label>
                         <input type="email" className="form-control" id="exampleInputPassword1" onChange={(e) => setEmail(e.target.value)}/>
-                    </div>
-                    <div className="mb-1">
+                    </div> */}
+                    <div className="col-12 md:col-4">
+                        <div className="p-inputgroup">
+                            <span className="p-inputgroup-addon">
+                                <i className="pi pi-envelope"></i>
+                            </span>
+                            <InputText placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
+                        </div>
+                     </div>
+                    {/* <div className="mb-1">
                         <label className="form-label">NIK</label>
                         <input type="telp" className="form-control" id="exampleInputPassword1" onChange={(e) => setNik(e.target.value)}/>
-                    </div>
-                    <div className="mb-1">
+                    </div> */}
+                    <div className="col-12 md:col-4">
+                        <div className="p-inputgroup">
+                            <span className="p-inputgroup-addon">
+                                <i className="pi pi-id-card"></i>
+                            </span>
+                            <InputText placeholder="NIK" onChange={(e) => setNik(e.target.value)} />
+                        </div>
+                     </div>
+                    {/* <div className="mb-1">
                         <label className="form-label">No Handphone</label>
                         <input type="telp" className="form-control" id="exampleInputPassword1" onChange={(e) => setNoHP(e.target.value)}/>
+                    </div> */}
+                    <div className="col-12 md:col-4">
+                        <div className="p-inputgroup">
+                            <span className="p-inputgroup-addon">
+                                <i className="pi pi-phone"></i>
+                            </span>
+                            <InputText placeholder="No. Handphone" onChange={(e) => setNoHP(e.target.value)} />
+                        </div>
                     </div>
-                    <div className="mb-1">
+                    {/* <div className="mb-1">
                         <label className="form-label">Password</label>
                         <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)}/>
+                    </div> */}
+                    <div className="col-12 md:col-4">
+                        <div className="p-inputgroup">
+                            <span className="p-inputgroup-addon">
+                                <i className="pi pi-lock"></i>
+                            </span>
+                            <Password placeholder="Password" feedback={false} onChange={(e) => setPassword(e.target.value)} />
+                        </div>
                     </div>
                     <div className="mb-3">
-                        <label className="form-label">Role</label>
-                        <select className="form-select" aria-label="Default select example" onChange={(e) => setRole(e.target.value)}>
+                        <select className={styles.option} onChange={(e) => setRole(e.target.value)}>
                             <option value={role} selected>User</option>
                             <option value={3}> Staff</option>
                             <option value={1}>Admin</option>
                         </select>
                     </div>
-                    <div className="btn btn-primary" onClick={() => handleAddUser()}>Submit</div>
+                    <div className={styles.buttonContainer}>
+                        <Button label="Tambah" icon="pi pi-plus" loading={loading1} iconPos="right" className="p-button-raised p-button-success mt-5" onClick={() => {onLoadingClick1(); handleAddUser();}}/>
+                    </div>
                 </form>
             </div>
         </div>
