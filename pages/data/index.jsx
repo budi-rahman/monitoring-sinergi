@@ -80,6 +80,10 @@ const ListUser = () => {
             </div> */}
             <div className={styles.table}>
             <h3>Daftar Pengguna</h3>
+            {/* <div className={styles.app}>
+                <input type="text" placeholder='Search...' className={styles.search}/>
+
+            </div> */}
             <div className="card">
                 <DataTable value={userData} responsiveLayout="scroll">
                     <Column field="id" header="ID"></Column>

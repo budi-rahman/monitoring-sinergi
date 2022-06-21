@@ -54,7 +54,7 @@ const AddUser = () => {
     useEffect(async () => {
         let token = cookies.get("token")
         if (token == undefined) {
-            router.push("/data")
+            router.push("/")
         }
     }, [])
 
@@ -67,11 +67,6 @@ const AddUser = () => {
             </div>
             <div className={styles.formContainer}>
                 <form>
-            
-                    {/* <div className="mb-1">
-                        <label className="form-label">Nama Lengkap</label>
-                        <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" onChange={(e) => setName(e.target.value)}/>
-                    </div> */}
                     <div className="col-12 md:col-4">
                         <div className="p-inputgroup">
                             <span className="p-inputgroup-addon">
@@ -80,10 +75,7 @@ const AddUser = () => {
                         <InputText placeholder="Nama Lengkap" onChange={(e) => setName(e.target.value)} />
                         </div>
                     </div>
-                    {/* <div className="mb-1">
-                        <label className="form-label">Username</label>
-                        <input type="text" className="form-control" id="exampleInputPassword1" onChange={(e) => setUserName(e.target.value)}/>
-                    </div> */}
+                    <br/>
                     <div className="col-12 md:col-4">
                         <div className="p-inputgroup">
                             <span className="p-inputgroup-addon">
@@ -92,10 +84,7 @@ const AddUser = () => {
                             <InputText placeholder="Username" onChange={(e) => setUserName(e.target.value)} />
                         </div>
                      </div>
-                    {/* <div className="mb-1">
-                        <label className="form-label">Email</label>
-                        <input type="email" className="form-control" id="exampleInputPassword1" onChange={(e) => setEmail(e.target.value)}/>
-                    </div> */}
+                     <br/>
                     <div className="col-12 md:col-4">
                         <div className="p-inputgroup">
                             <span className="p-inputgroup-addon">
@@ -104,10 +93,7 @@ const AddUser = () => {
                             <InputText placeholder="Email" onChange={(e) => setEmail(e.target.value)} />
                         </div>
                      </div>
-                    {/* <div className="mb-1">
-                        <label className="form-label">NIK</label>
-                        <input type="telp" className="form-control" id="exampleInputPassword1" onChange={(e) => setNik(e.target.value)}/>
-                    </div> */}
+                     <br/>
                     <div className="col-12 md:col-4">
                         <div className="p-inputgroup">
                             <span className="p-inputgroup-addon">
@@ -116,10 +102,7 @@ const AddUser = () => {
                             <InputText placeholder="NIK" onChange={(e) => setNik(e.target.value)} />
                         </div>
                      </div>
-                    {/* <div className="mb-1">
-                        <label className="form-label">No Handphone</label>
-                        <input type="telp" className="form-control" id="exampleInputPassword1" onChange={(e) => setNoHP(e.target.value)}/>
-                    </div> */}
+                     <br/>
                     <div className="col-12 md:col-4">
                         <div className="p-inputgroup">
                             <span className="p-inputgroup-addon">
@@ -128,10 +111,7 @@ const AddUser = () => {
                             <InputText placeholder="No. Handphone" onChange={(e) => setNoHP(e.target.value)} />
                         </div>
                     </div>
-                    {/* <div className="mb-1">
-                        <label className="form-label">Password</label>
-                        <input type="password" className="form-control" id="exampleInputPassword1" onChange={(e) => setPassword(e.target.value)}/>
-                    </div> */}
+                    <br/>
                     <div className="col-12 md:col-4">
                         <div className="p-inputgroup">
                             <span className="p-inputgroup-addon">
@@ -140,6 +120,7 @@ const AddUser = () => {
                             <Password placeholder="Password" feedback={false} onChange={(e) => setPassword(e.target.value)} />
                         </div>
                     </div>
+                    <br/>
                     <div className="mb-3">
                         <select className={styles.option} onChange={(e) => setRole(e.target.value)}>
                             <option value={role} selected>User</option>
@@ -147,6 +128,7 @@ const AddUser = () => {
                             <option value={1}>Admin</option>
                         </select>
                     </div>
+                    <br/>
                     <div className={styles.buttonContainer}>
                         <Button label="Tambah" icon="pi pi-plus" loading={loading1} iconPos="right" className="p-button-raised p-button-success mt-5" onClick={() => {onLoadingClick1(); handleAddUser();}}/>
                     </div>

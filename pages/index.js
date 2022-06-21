@@ -21,7 +21,7 @@ export default function Home() {
 
     setTimeout(() => {
         setLoading1(false);
-    }, 2000);
+    }, 10000);
 }
 
   const handleLogin = async () => {
@@ -78,6 +78,7 @@ export default function Home() {
               <InputText placeholder="Username" onChange={(e) => setUsername(e.target.value)} />
           </div>
         </div>
+        <br/>
         <div className="col-12 md:col-4 mt-5">
           <div className="p-inputgroup">
               <span className="p-inputgroup-addon">
@@ -86,6 +87,7 @@ export default function Home() {
               <Password  placeholder="Password" feedback={false} onChange={(e) => setPassword(e.target.value)}/>
           </div>
         </div>
+        <br/>
       </div>
       <div className={styles.buttonContainer}>
       <Button label="Masuk" icon="pi pi-check" loading={loading1} iconPos="right" className="p-button-raised p-button-success mt-5" onClick={() => {onLoadingClick1(); handleLogin();}}/>

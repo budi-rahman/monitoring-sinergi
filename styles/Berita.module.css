@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.table{
+    width: 100%;
+    padding: 10px
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: row-reverse;
+}

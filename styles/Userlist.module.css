@@ -9,3 +9,13 @@
     padding: 10px;
     margin: 10px;
 }
+
+.app{
+    margin-left: 20px;
+    margin-bottom: 20px;
+}
+
+.search{
+    padding: 5px;
+    font-size: 15px
+}

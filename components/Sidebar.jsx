@@ -49,7 +49,9 @@ const Sidebar = () => {
                         </Link>
                     </li>
                     <li className="nav-item">
-                        <Button label="Upload Berita" icon="pi pi-upload"  iconPos="right" className="p-button-raised p-button-success" />
+                        <Link href='/berita/'>
+                        <Button label="Berita" icon="pi pi-upload"  iconPos="right" className="p-button-raised p-button-success" />
+                        </Link>
                     </li>
                     <li className="nav-item">
                         <Button label="Keluar" icon="pi pi-sign-out" loading={loading1} iconPos="right" className="p-button-raised p-button-danger" onClick={() => {onLoadingClick1(); handleLogout();}} />
