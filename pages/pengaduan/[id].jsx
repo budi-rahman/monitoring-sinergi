@@ -102,7 +102,6 @@ export default function ResponPengaduan({id}) {
                 // kalau gagal gimana
                 console.log("gagal masuk sini")
             }
-            console.log(changeURL(id))
             let fetchDataPengaduan = await SinergiAPi.Pengaduan.GetPengaduan({ token: token, id: changeURL(id) })
             let resDataPengaduan = await fetchDataPengaduan.json()
 
