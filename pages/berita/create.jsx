@@ -4,6 +4,9 @@ import router from 'next/router'
 import SinergiAPi from '../../lib/api'
 import Sidebar from '../../components/Sidebar';
 import styles from '../../styles/BuatBerita.module.css'
+import { InputText } from 'primereact/inputtext';
+import { Button } from 'primereact/button';
+import { InputTextarea } from 'primereact/inputtextarea';
 
 export default function CreateNews() {
     const [isLoading, setIsLoading] = useState(true)
@@ -12,6 +15,7 @@ export default function CreateNews() {
     const[title, setTitle] = useState()
     const[text, setText] = useState()
     const [loading1, setLoading1] = useState(false);
+
     const onLoadingClick1 = () => {
         setLoading1(true);
     
@@ -59,15 +63,22 @@ export default function CreateNews() {
                 <h3>Buat Berita</h3>
             </div>
             <div className={styles.formContainer}>
-                <form>
-                    <input type='file' onChange={(e) => setImage(e.target.files[0])}/>
-                    <input type="text"  onChange={(e) => setTitle(e.target.value)} />
-                    <input type="text"  onChange={(e) => setText(e.target.value)} />
-                    <input type="text"  onChange={(e) => setText(e.target.value)} />
+                <form className={styles.form}>
+                    <input type='file' className={styles.upload} onChange={(e) => setImage(e.target.files[0])}/>
+                    <br/>
+                    <div className={styles.newsTitle}>
+                        <InputText  type="text"  className={styles.newsTitle}  placeholder="Input Judul"  onChange={(e) => setTitle(e.target.value)} />
+                    </div>
+                    <br/>
+                    <div className={styles.newsTitle}>
+                        <InputTextarea type="text"  className={styles.newsContent} placeholder="Input Materi"   onChange={(e) => setText(e.target.value)}/>
+                    </div>
+                    <br/>
                 </form>
-            <button onClick={handleCreateNews}>Submit</button>
             </div>
-
+            <div className={styles.button}>
+                    <Button label="Submit" icon="pi pi-check" loading={loading1} iconPos="right" className="p-button-raised p-button-success mt-5" onClick={() => {onLoadingClick1(); handleCreateNews();}}/>
+            </div>
         </div>
         </>
         }

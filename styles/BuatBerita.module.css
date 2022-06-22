@@ -10,12 +10,20 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    background-color: aqua;
     height: 50vh;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 50px;
 }
 
 .title{
-    width: 15%;
+    width: 100%;
     padding: 20px
 }
 
@@ -27,4 +35,16 @@
     background-color:#cbe9d79c;
     border-radius: 5px;
     padding: 10px;
+}
+
+.newsTitle{
+    width: 100%;
+}
+
+.newsContent{
+    width: 100%;
+}
+
+.button{
+    margin-left: 50px;
 }
