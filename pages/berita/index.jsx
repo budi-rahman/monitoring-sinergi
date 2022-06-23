@@ -9,7 +9,7 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { Button } from 'primereact/button';
 
-const listBerita = () => {
+const ListBerita = () => {
     let router = useRouter()
     const [dataBerita, setDataBerita ] = useState([])
     const [ loading1, setLoading1 ] = useState(false)
@@ -64,4 +64,4 @@ const listBerita = () => {
     )
 }
 
-export default listBerita
+export default ListBerita
